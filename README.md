@@ -29,7 +29,9 @@ pip install -r requirements.txt
 
 ### Set up your API keys
 Solana private key: Typically, a 64-character hex string or a base58-encoded string.
+
 Helius RPC or other Solana RPC URL (e.g., https://mainnet.helius-rpc.com/?api-key=YOUR_API_KEY).
+
 OpenAI API key or Groq API key(free).
 
 ### Option A: Hardcode credentials
