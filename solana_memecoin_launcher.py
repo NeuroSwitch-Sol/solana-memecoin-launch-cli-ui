@@ -1,16 +1,12 @@
 import asyncio
 from typing import Optional
-
 from rich.console import Console
 from rich.panel import Panel
 from rich.prompt import Prompt
-
 from agentipy import SolanaAgentKit
 from agentipy.types import PumpfunTokenOptions
-
 from pydantic_ai import Agent, RunContext
 from pydantic_ai.models.openai import OpenAIModel
-
 from pydantic import BaseModel
 from pydantic_ai.models.groq import GroqModel
 
@@ -66,7 +62,6 @@ async def launch_token_tool(ctx: RunContext, input: LaunchTokenInput) -> str:
 model = OpenAIModel('gpt-4o-mini', api_key='API_KEY')
 # model = GroqModel('llama-3.3-70b-versatile', api_key='API_KEY')
 
-# Initialize the chat agent with a helpful system prompt
 chat_agent = Agent(
     model=model,
     system_prompt=(
@@ -76,7 +71,6 @@ chat_agent = Agent(
     )
 )
 
-# Register the launch token function as a tool for the AI
 @chat_agent.tool
 async def launch_token(ctx: RunContext, input: LaunchTokenInput) -> str:
     """
@@ -100,18 +94,14 @@ async def rich_main():
 
         console.print("\n[bold cyan]Processing your request...[/bold cyan]")
 
-        # Display a spinner while the AI processes the request
         with console.status("[bold green]Launching token based on your query...[/bold green]", spinner="dots"):
             try:
-                # Send the query to the AI agent
                 response = await chat_agent.run(user_query)
 
-                # Ask the AI to reformat the response for user-friendliness
                 reformatted_response = await chat_agent.run(
                     f"Format the following response in a user-friendly way:\n{response.data}"
                 )
 
-                # Show the reformatted response
                 console.print(Panel(f"[bold green]Formatted Response:[/bold green]\n{reformatted_response.data}"))
             except Exception as e:
                 console.print(Panel(f"[bold red]Error:[/bold red] {e}"))
