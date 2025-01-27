@@ -73,7 +73,9 @@ Enter your query (type 'exit' to quit):: launch_token called MyMemeToken with a 
 ## Troubleshooting
 
 Missing/Invalid API keys: Ensure all credentials are correct. If using environment variables, check that they are properly set.
+
 Dependency errors: Reinstall or upgrade the package versions in requirements.txt.
+
 Network issues: Verify your internet connection and confirm that the RPC URL is valid.
 
 Enjoy launching your memecoins in Solana! If you have any issues, feel free to open an issue on GitHub and contact us in X/Discord.
