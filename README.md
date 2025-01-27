@@ -69,6 +69,7 @@ Follow the Prompts
 ```bash
 Enter your query (type 'exit' to quit):: launch_token called MyMemeToken with a ticker='MMT' having description of A brand-new meme coin! and with image_url='https://example.com/image.png'
 ```
+![alt text](image.png)
 
 ## Troubleshooting
 
